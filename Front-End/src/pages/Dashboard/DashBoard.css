@@ -1,0 +1,126 @@
+body {
+    background: #212123
+}
+
+.content-container {
+    margin: 0;
+    min-height: calc(100vh - 144px);
+    background: #212123;
+}
+
+.section-title {
+    color: var(--cornsilk);
+}
+
+.dashboard-container {
+    aspect-ratio: 16/9;
+    width: 120vh;
+    border-radius: 15px;
+    background: var(--davys-gray);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    font-weight: bolder;
+}
+
+.dashboard-title {
+    color: var(--persimmon);
+    font-weight: bolder;
+    font-size: 35px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.right-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 0 20px 20px;
+    border-left: 3px solid var(--persimmon);
+}
+.best-seller-product{
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    margin: 0 20px 20px;
+    height: 60%;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.dashboard-item-text {
+    line-height: 1;
+    border-top: 2px solid var(--persimmon);
+    width: 100%;
+    padding: 20px 0;
+    color: var(--cornsilk);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+
+    h3, h2, h1 {
+        padding-left: 5px;
+        font-weight: bold;
+    }
+
+    h1 {
+        text-decoration: underline;
+    }
+}
+
+
+.table {
+    padding: 40px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    border-radius: calc(10px + 1rem);
+    padding: 1rem 1rem 2rem;
+    gap: 5px;
+    width: fit-content;
+    color: var(--cornsilk);
+    background-color: var(--davys-gray);
+    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
+}
+
+#info {
+    border-left: 2px solid var(--cornsilk);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 0 5px;
+    margin-left: 2px;
+    p, h3 {
+        font-weight: bold;
+    }
+}
+
+.product-card img {
+    border-radius: 10px;
+    width: 200px;
+    margin: 0;
+}
+
+.enterpriseImage {
+    width: 10vh;
+    border-radius: 100%;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
+}
+

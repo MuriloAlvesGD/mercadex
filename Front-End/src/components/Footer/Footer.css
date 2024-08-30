@@ -1,0 +1,10 @@
+.footer-container {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--davys-gray);
+    color: var(--cornsilk);
+    filter: drop-shadow(0px 1px 15px rgba(0, 0, 0, 0.7));
+    line-height: 1.5;
+}
