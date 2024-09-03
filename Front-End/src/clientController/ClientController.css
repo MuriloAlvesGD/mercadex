@@ -91,11 +91,11 @@ input:checked ~ label{
     align-items: center;
     border-radius: 25px;
     border: 1px solid transparent;
-    max-height: 80%;
-    padding: 0.6em;
+    box-sizing: border-box;
+    padding: 5px;
     background-color: var(--white);
 }
 
 #searchButton img {
-    object-fit: cover;
+    max-height: 15px;
 }
