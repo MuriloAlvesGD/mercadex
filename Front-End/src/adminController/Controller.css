@@ -23,10 +23,12 @@ label{
     border-radius: 25px;
     background-color: var(--persimmon);
 }
+label:hover {
+    cursor: pointer;
+}
 
 #menuBtn{
     display: none;
-
 }
 
 #menuBtn:checked ~ #navBtn {
@@ -59,4 +61,5 @@ input:checked ~ label{
     scale: 1.4;
     opacity: 0.8;
     filter: drop-shadow(0px 0px 3px white);
+    cursor: pointer;
 }

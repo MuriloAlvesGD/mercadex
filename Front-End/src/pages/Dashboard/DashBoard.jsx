@@ -5,23 +5,29 @@ import DefaultImageIcon from "../../assets/defaultImageIcon.png";
 import { Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend,} from 'chart.js';
 ChartJS.register(CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend);
 import {Bar} from 'react-chartjs-2';
+import ClientCard from "../../components/ClientCard/ClientCard.jsx";
+import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 
 const options = {
     responsive: true,
+    layout: {
+        padding: 20,
+    },
     plugins: {
         legend: {
-            position: 'top',
+            display: false,
         },
         title: {
             display: true,
             position: 'top',
-            text: 'Data',
+            text: 'Vendas por Mês',
             color: '#df5201',
-        },
-        layout: {
-            padding: 100,
+            font: {
+                size: 20,
+                family: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
+            }
         }
-    },
+    }
 };
 
 const labels = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho"];
@@ -29,10 +35,9 @@ const data = {
     labels,
     datasets: [
         {
-            label: 'Dataset vermelho',
             data: labels.map((() => Math.floor(Math.random() * 100))),
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderColor: 'red',
+            backgroundColor: '#99e1d9ff',
+            borderColor: '#199C8AFF',
             borderWidth: 1
         },
     ],
@@ -54,10 +59,11 @@ function DashBoard() {
                                 <div className="right-section">
                                     <img src={DefaultImageIcon} alt="best seller product"
                                          className="best-seller-product"/>
-                                    <div className="dashboard-item-text">
+                                    <div className="dashboard-item-info">
                                         <h1>Nome do Produto</h1>
-                                        <h2>preço</h2>
+                                        <h2>preço Médio:</h2>
                                         <h3>Ultima Venda</h3>
+                                        <ClientCard client={{}}/>
                                     </div>
                                 </div>
                             </div>
@@ -75,13 +81,7 @@ function DashBoard() {
                 </Carousel>
                 <h1 className="section-title">Selling Products</h1>
                 <section className="table" id="products">
-                    <div className="product-card">
-                        <img src={DefaultImageIcon} alt="product"/>
-                        <div id="info">
-                            <h3>Nome do Produto</h3>
-                            <p>preço</p>
-                        </div>
-                    </div>
+                    <ProductCard product={{name: "nome do produto", price: 155}}/>
                 </section>
             </div>
         </>
