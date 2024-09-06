@@ -6,7 +6,7 @@ import { PiTrashFill } from "react-icons/pi";
 import { ImCross } from "react-icons/im";
 import { IoLogOut } from "react-icons/io5";
 import "./Controller.css"
-import Dashboard from "../pages/Dashboard/DashBoard.jsx";
+import Dashboard from "../pages/Dashboard/Admin.jsx";
 import {useNavigate} from "react-router-dom";
 
 function Controller() {
@@ -17,7 +17,7 @@ function Controller() {
         <div id="controller">
             <div id="top-bar">
                 <input type="checkbox" id="menuBtn"></input>
-                <label htmlFor="menuBtn"><ImCross/></label>
+                <label id='labelMenu' htmlFor="menuBtn"><ImCross/></label>
                 <nav id="navBtn">
                     <RiHome6Fill class="btn" onClick={() => setView(1)}/>
                     <AiFillProduct class="btn" onClick={() => setView(2)}/>

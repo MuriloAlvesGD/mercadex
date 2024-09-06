@@ -15,7 +15,7 @@ function ClientController() {
         <div id="controller">
             <div id="top-bar">
                 <input type="checkbox" id="menuBtn"></input>
-                <label htmlFor="menuBtn"><ImCross/></label>
+                <label id='labelMenu' htmlFor="menuBtn"><ImCross/></label>
                 <nav id="navBtn">
                     <form id="searchForm" onSubmit={e => e.preventDefault()}>
                         <input className="navbar-search" type="text" placeholder="Search"/>

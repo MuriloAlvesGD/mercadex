@@ -13,7 +13,7 @@
     filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.4));
 }
 
-label{
+#labelMenu{
     color: var(--cornsilk);
     height: fit-content;
     width: fit-content;
@@ -33,7 +33,7 @@ label{
     transform: translateX(0);
 }
 
-input:checked ~ label{
+input:checked ~ #labelMenu{
     rotate: 0deg;
     background-color: #df5201;
 }

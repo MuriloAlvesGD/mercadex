@@ -51,7 +51,8 @@ body {
     padding: 10px 0 20px 20px;
     border-left: 3px solid var(--persimmon);
 }
-.best-seller-product{
+
+.best-seller-product {
     aspect-ratio: 4/5;
     object-fit: cover;
     margin: 0 20px 20px;
@@ -80,14 +81,20 @@ body {
         text-decoration: underline;
     }
 
-    h3{
+    h3 {
         color: var(--tiffany-blue);
         margin-top: 5%;
     }
 }
 
-.table {
+#table {
     padding: 40px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    backdrop-filter: brightness(1.1);
 }
 
 .enterpriseImage {
@@ -96,3 +103,49 @@ body {
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.2));
 }
 
+#product-search {
+    width: 60%;
+    margin: 10px 30px 30px;
+    padding: 2px;
+    font-size: 17px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--white);
+    color: var(--davys-gray);
+}
+
+.register-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(10px + 1rem);
+    padding: 1rem 1rem 2rem;
+    gap: 5px;
+    width: fit-content;
+    color: var(--persimmon);
+    border: 2px solid var(--persimmon);
+    background-color: var(--davys-gray);
+    font-size: 60px;
+    filter: brightness(1);
+    transition: all 0.2s ease-out;
+    h1 {
+        font-size: 15px;
+        font-weight: bold;
+        padding: 5px;
+    }
+
+
+}
+
+.register-btn:hover {
+    filter: brightness(1.2);
+}
+
+.register-btn:active {
+    color: var(--davys-gray);
+    border: 2px solid var(--davys-gray);
+    background-color: var(--persimmon);
+}

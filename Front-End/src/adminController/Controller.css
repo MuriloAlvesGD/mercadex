@@ -13,7 +13,7 @@
     filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.4));
 }
 
-label{
+#labelMenu{
     color: var(--cornsilk);
     height: fit-content;
     width: fit-content;
@@ -23,7 +23,7 @@ label{
     border-radius: 25px;
     background-color: var(--persimmon);
 }
-label:hover {
+#labelMenu:hover {
     cursor: pointer;
 }
 
@@ -35,7 +35,7 @@ label:hover {
     transform: translateX(0);
 }
 
-input:checked ~ label{
+input:checked ~ #labelMenu{
     rotate: 0deg;
     background-color: #df5201;
 }
