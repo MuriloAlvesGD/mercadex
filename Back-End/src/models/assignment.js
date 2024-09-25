@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import validator from "validator";
+
 
 const assignmentSchema = new mongoose.Schema({
     name: {
@@ -7,6 +7,7 @@ const assignmentSchema = new mongoose.Schema({
         maxLength: 100,
         required: true,
         upper: true,
+        default: "new-user",
         nullable: false
     },
     description: {
@@ -15,7 +16,7 @@ const assignmentSchema = new mongoose.Schema({
         default: '',
         nullable: true,
     },
-    acessLevel: {
+    accessLevel: {
         type: Number,
         default: 0,
         required: true,
@@ -24,4 +25,4 @@ const assignmentSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('Assignment', assignmentSchema)
+export default new  mongoose.model('Assignment', assignmentSchema)

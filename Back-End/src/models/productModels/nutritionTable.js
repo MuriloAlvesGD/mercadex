@@ -28,4 +28,4 @@ const nutritionTableSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("NutritionTable", nutritionTableSchema)
+export default new  mongoose.model("NutritionTable", nutritionTableSchema)

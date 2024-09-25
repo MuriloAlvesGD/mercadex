@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
 const stockSchema = new mongoose.Schema({
     qtd: {
@@ -14,4 +13,4 @@ const stockSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Stock", stockSchema);
+export default new mongoose.model("Stock", stockSchema);

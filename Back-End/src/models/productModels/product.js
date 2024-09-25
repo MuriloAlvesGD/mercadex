@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
-import validator from "validator";
-import price from "./price";
-import stock from "./stock";
-import specification from "./specification";
+import price from "./price.js";
+import stock from "./stock.js";
+import specification from "./specification.js";
 
 const productSchema = new mongoose.Schema({
     enterprise_id: {
@@ -34,13 +33,10 @@ const productSchema = new mongoose.Schema({
         nullable: true,
     },
     images: [{type: String,
-        validate: (value) => {
-            return validator.isBase64(value);
-        }
     }],
     price: price.schema,
     stock: stock.schema,
     specification: specification.schema,
 })
 
-module.exports = mongoose.model("Product", productSchema);
+export default new  mongoose.model("Product", productSchema);

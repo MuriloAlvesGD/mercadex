@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-import validator from 'validator';
-import nutritionTable from './nutritionTable';
+import nutritionTable from './nutritionTable.js';
 
 const specificationSchema = new mongoose.Schema({
     category: {
@@ -17,4 +16,4 @@ const specificationSchema = new mongoose.Schema({
     nutritionTable: nutritionTable.schema,
 })
 
-module.exports = mongoose.model("Specifications", specificationSchema);
+export default new mongoose.model("Specifications", specificationSchema);

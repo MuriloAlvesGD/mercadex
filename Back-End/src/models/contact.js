@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import validator from "validator";
 
 const contactSchema = new mongoose.Schema({
     phone: {
@@ -10,13 +9,9 @@ const contactSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        unique: true,
         lowercase: true,
         nullable: true,
-        validate: (value) => {
-            return validator.isEmail(value)
-        }
     }
 })
 
-module.exports = mongoose.model('Contact', contactSchema)
+export default mongoose.model('Contact', contactSchema)

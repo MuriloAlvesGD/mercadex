@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 import './Register.css';
 
-const Register = ({ isOpen, onClose, addProduct, getProducts}) => {
+const Register = ({ isOpen, onClose}) => {
     const [productName, setProductName] = useState('');
     const [productBrand, setProductBrand] = useState('');
+    const [productDescription, setProductDescription] = useState('');
+    const [productImages, setProductImages] = useState([]);
+    const [productPrice, setProductPrice] = useState('');
+    const [hasDiscount, setHasDiscount] = useState(false);
+    const [currency, setCurrency] = useState('');
     const [productWeight, setProductWeight] = useState(0);
     const [productQuantity, setProductQuantity] = useState(0);
-    const [productPrice, setProductPrice] = useState('');
 
     const handleClose = () => {
         setProductName('');
@@ -35,6 +40,7 @@ const Register = ({ isOpen, onClose, addProduct, getProducts}) => {
         console.log('Produto Registrado:', { name: productName, price: productPrice });
         handleClose() // Fecha o popup após o registro
     };
+
 
     if (!isOpen) return null;
 

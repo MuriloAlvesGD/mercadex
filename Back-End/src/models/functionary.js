@@ -1,21 +1,19 @@
 import mongoose from "mongoose";
-import validator from "validator";
-import address from "./address";
-import contact from "./contact";
+import address from "./address.js";
+import contact from "./contact.js";
 import assignment from "./assignment.js";
+import bcrypt from "bcrypt";
 
 const functionarySchema = new mongoose.Schema({
     enterprise_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Enterprise',
-        required: true,
-        nullable: false
+        default: null
     },
     name: {
         type: String,
         maxLength: 100,
         required: true,
-        unique: true,
         upper: true,
         nullable: false
     },
@@ -28,10 +26,8 @@ const functionarySchema = new mongoose.Schema({
     },
     profileImage: {
         type: String,
-        validate: (value) => {
-            return validator.isBase64(value);
-        }
     },
+
     bornDate: {
         type: Date,
         required: true,
@@ -40,6 +36,26 @@ const functionarySchema = new mongoose.Schema({
     address: address.schema,
     contact: contact.schema,
     assignment: assignment.schema,
-})
 
-module.exports = mongoose.model("Functionary", functionarySchema);
+    login: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        lowercase: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+});
+
+functionarySchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next();
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+
+export default new  mongoose.model("Functionary", functionarySchema);

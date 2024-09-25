@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import validator from "validator";
+import bcrypt from "bcrypt"
 import address from "./address";
-import contact from "./contact";
+import contact from "./contact.js";
 
 const clientSchema = new mongoose.Schema({
     name: {
@@ -21,9 +21,6 @@ const clientSchema = new mongoose.Schema({
     },
     profileImage: {
         type: String,
-        validate: (value) => {
-            return validator.isBase64(value);
-        }
     },
     bornDate: {
         type: Date,
@@ -32,6 +29,25 @@ const clientSchema = new mongoose.Schema({
     },
     address: address.schema,
     contact: contact.schema,
-})
+    login: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        lowercase: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+});
 
-module.exports = mongoose.model("Client", clientSchema);
+clientSchema.pre('save', async function (next) {
+    if (!this.isModified('password')) return next();
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
+
+export default new  mongoose.model("Client", clientSchema);

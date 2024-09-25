@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import validator from "validator";
+
 
 const addressSchema = new mongoose.Schema({
     street: {
@@ -34,4 +34,4 @@ const addressSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('Address', addressSchema);
+export default mongoose.model('Address', addressSchema);

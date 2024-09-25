@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
 const priceSchema = new mongoose.Schema({
     oldPrice: {
@@ -23,4 +22,4 @@ const priceSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Price", priceSchema);
+export default new mongoose.model("Price", priceSchema);

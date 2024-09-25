@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import * as moongose from "mongoose";
 import address from "./address";
-import price from "./productModels/price"
+import price from "./productModels/price.js"
 
 const orderSchema = new mongoose.Schema({
     client_id: {
@@ -33,4 +33,4 @@ const orderSchema = new mongoose.Schema({
     }]
 })
 
-module.exports = moongose.model("Order", orderSchema);
+export default new  moongose.model("Order", orderSchema);

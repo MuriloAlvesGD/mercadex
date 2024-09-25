@@ -41,7 +41,7 @@ input:checked ~ #labelMenu{
 }
 
 #navBtn {
-    transform: translateX(200%);
+    transform: translateX(300%);
     display: flex;
     height: fit-content;
     width: fit-content;

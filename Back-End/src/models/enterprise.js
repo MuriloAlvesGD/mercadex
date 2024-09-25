@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
-import validator from "validator";
-import address from "./address";
-import contact from "./contact";
+import address from "./address.js";
+import contact from "./contact.js";
 
 const enterpriseSchema = new mongoose.Schema({
     name: {
@@ -21,12 +20,9 @@ const enterpriseSchema = new mongoose.Schema({
     },
     profileImage: {
         type: String,
-        validate: (value) => {
-            return validator.isBase64(value);
-        }
     },
     address: address.schema,
     contact: contact.schema,
 })
 
-module.exports = mongoose.model("Enterprise", enterpriseSchema)
+export default mongoose.model("Enterprise", enterpriseSchema)
