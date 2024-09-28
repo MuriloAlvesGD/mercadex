@@ -40,7 +40,7 @@ function Login() {
                 navigate("/Admin", {replace: true});
             }
         } catch (error) {
-            console.error('Erro ao fazer login:', error.response ? error.response.data : error.message);
+            console.error('Erro ao fazer login:', error);
         }
     }
 

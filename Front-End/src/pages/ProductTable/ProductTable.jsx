@@ -1,7 +1,7 @@
 import "./ProductTable.css";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
-import { MdAddBox } from "react-icons/md";
+import {MdAddBox} from "react-icons/md";
 import Register from "../../components/popUp/Register/Register.jsx";
 import Edit from "../../components/popUp/Edit/Edit.jsx";
 import axios from "axios";
@@ -27,7 +27,9 @@ function ProductTable() {
     useEffect(() => {
         const getAllProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:3333/products/', { withCredentials: true });
+                const response = await axios.get('http://localhost:3333/products/',
+                    {withCredentials: true});
+                console.log(response.data);
                 setProducts(response.data);
                 setFilteredProducts(response.data);
             } catch (e) {
@@ -49,15 +51,15 @@ function ProductTable() {
             />
             <section id="table">
                 <button className="register-btn" onClick={() => openPopUp(1)}>
-                    <MdAddBox />
+                    <MdAddBox/>
                     <h1>CADASTRAR NOVO ITEM</h1>
                 </button>
                 {filteredProducts.map((product) => (
-                    <ProductCard product={product} key={product._id} openPopUp={() => openPopUp(2)} />
+                    <ProductCard product={product} key={product._id} openPopUp={() => openPopUp(2)}/>
                 ))}
             </section>
-            {pop === 1 && <Register isOpen={isPopUpOpen} onClose={closePopUp} />}
-            {pop === 2 && <Edit isOpen={isPopUpOpen} onClose={closePopUp} />}
+            {pop === 1 && <Register isOpen={isPopUpOpen} onClose={closePopUp}/>}
+            {pop === 2 && <Edit isOpen={isPopUpOpen} onClose={closePopUp}/>}
         </div>
     );
 }

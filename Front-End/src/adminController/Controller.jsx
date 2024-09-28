@@ -36,7 +36,7 @@ function Controller() {
                 const response = await axios.get('http://localhost:3333/auth/', {
                     withCredentials: true,
                 })
-                const access = JSON.parse(response.data.user).access.accessLevel
+                const access = response.data.assignment.accessLevel
                 if (access === null) {
                     navigate("/Login", {replace: true});
                 }
@@ -45,7 +45,7 @@ function Controller() {
                 }
             }
             catch (e){
-                !e.response.data.access ? navigate("/Login", {replace: true}) : console.error(e);
+                !e.response.data.assignment ? navigate("/Login", {replace: true}) : console.error(e);
             }
         }
         auth()

@@ -3,13 +3,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import routes from './Routes.js';
-import EnterpriseService from "./src/service/EnterpriseService.js";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(
     cors({
         origin: ["http://localhost:5173"],

@@ -7,12 +7,12 @@ const enterpriseSchema = new mongoose.Schema({
         type: String,
         maxLength: 100,
         required: true,
-        unique: true,
         upper: true,
         nullable: false
     },
     CNPJ: {
         type: String,
+        maxLength: 14,
         required: true,
         unique: true,
         upper: true,
@@ -21,6 +21,15 @@ const enterpriseSchema = new mongoose.Schema({
     profileImage: {
         type: String,
     },
+    admin: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Functionary",
+        required: true,
+        unique: true,
+        nullable: false,
+        upper: true,
+    },
+
     address: address.schema,
     contact: contact.schema,
 })
