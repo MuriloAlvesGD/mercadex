@@ -21,8 +21,6 @@ const productSchema = new mongoose.Schema({
     brand: {
         type: String,
         maxLength: 100,
-        required: true,
-        unique: true,
         upper: true,
         default: "fabricação própria"
     },

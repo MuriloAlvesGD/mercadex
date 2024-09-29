@@ -3,42 +3,42 @@ import {useEffect, useState} from "react";
 import ProductCard from "../../components/ProductCard/ProductCard.jsx";
 import {MdAddBox} from "react-icons/md";
 import Register from "../../components/popUp/Register/Register.jsx";
-import Edit from "../../components/popUp/Edit/Edit.jsx";
 import axios from "axios";
 
 function ProductTable() {
     const [isPopUpOpen, setPopUpOpen] = useState(false);
-    const [pop, setPop] = useState(0);
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [refresh, setRefresh] = useState(0);
+    const [product, setProduct] = useState({});
 
-    const openPopUp = (pop) => {
+    const openPopUp = (product) => {
         setPopUpOpen(true);
-        setPop(pop);
+        setProduct(product)
     };
 
-    const closePopUp = () => setPopUpOpen(false);
+    const closePopUp = () => {setPopUpOpen(false); setRefresh((prev) => prev + 1); setProduct({})};
 
     const handleFilterProduct = (e) => {
         const query = e.toLowerCase();
         setFilteredProducts(products.filter(prod => prod.name.toLowerCase().includes(query)));
     };
 
-    useEffect(() => {
-        const getAllProducts = async () => {
-            try {
-                const response = await axios.get('http://localhost:3333/products/',
-                    {withCredentials: true});
-                console.log(response.data);
-                setProducts(response.data);
-                setFilteredProducts(response.data);
-            } catch (e) {
-                console.error(e);
-            }
-        };
+    const getAllProducts = async () => {
+        try {
+            const response = await axios.get('http://localhost:3333/products/',
+                {withCredentials: true});
+            console.log(response.data);
+            setProducts(response.data);
+            setFilteredProducts(response.data);
+        } catch (e) {
+            console.error(e);
+        }
+    };
 
+    useEffect(() => {
         getAllProducts();
-    }, []);
+    }, [refresh]);
 
     return (
         <div className="content-container">
@@ -55,11 +55,10 @@ function ProductTable() {
                     <h1>CADASTRAR NOVO ITEM</h1>
                 </button>
                 {filteredProducts.map((product) => (
-                    <ProductCard product={product} key={product._id} openPopUp={() => openPopUp(2)}/>
+                    <ProductCard product={product} key={product._id} openPopUp={() => openPopUp(product)}/>
                 ))}
             </section>
-            {pop === 1 && <Register isOpen={isPopUpOpen} onClose={closePopUp}/>}
-            {pop === 2 && <Edit isOpen={isPopUpOpen} onClose={closePopUp}/>}
+            <Register isOpen={isPopUpOpen} onClose={closePopUp} product={product}/>
         </div>
     );
 }

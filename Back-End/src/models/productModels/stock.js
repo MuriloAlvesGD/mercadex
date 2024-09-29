@@ -9,7 +9,7 @@ const stockSchema = new mongoose.Schema({
     avaiable: {
         type: Boolean,
         required: true,
-        default: true
+        default: false
     }
 })
 

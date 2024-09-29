@@ -1,27 +1,26 @@
 import "./Home.css"
-import {Carousel} from "../../components/Carousel/Carousel.jsx"
-import {CarouselItem} from "../../components/Carousel/CarouselItem.jsx"
+import Carousel from "../../components/Carousel/Carousel.jsx"
 import DefaultImageIcon from "../../assets/defaultImageIcon.png"
 
 function Home() {
     return (
         <>
             <div className="content-container">
-                <Carousel margin={"0 25vh"} translateVar={170}>
+                <Carousel>
                     {/*colocar imagens no padrão 16:9 */}
-                    <CarouselItem><p className="teste">teste</p></CarouselItem>
-                    <CarouselItem><p className="teste">teste</p></CarouselItem>
-                    <CarouselItem><p className="teste">teste</p></CarouselItem>
-                    <CarouselItem><p className="teste">teste</p></CarouselItem>
-                    <CarouselItem><p className="teste">teste</p></CarouselItem>
+                    <p className="teste">teste</p>
+                    <p className="teste">teste</p>
+                    <p className="teste">teste</p>
+                    <p className="teste">teste</p>
+                    <p className="teste">teste</p>
                 </Carousel>
-                <Carousel margin={"0 5vh"} translateVar={10}>
+                <Carousel>
                     {/*colocar imagens no padrão 16:9 */}
-                    <CarouselItem><img src={DefaultImageIcon} className="enterpriseImage"/></CarouselItem>
-                    <CarouselItem><img src={DefaultImageIcon} className="enterpriseImage"/></CarouselItem>
-                    <CarouselItem><img src={DefaultImageIcon} className="enterpriseImage"/></CarouselItem>
-                    <CarouselItem><img src={DefaultImageIcon} className="enterpriseImage"/></CarouselItem>
-                    <CarouselItem><img src={DefaultImageIcon} className="enterpriseImage"/></CarouselItem>
+                    <img src={DefaultImageIcon} className="enterpriseImage"/>
+                    <img src={DefaultImageIcon} className="enterpriseImage"/>
+                    <img src={DefaultImageIcon} className="enterpriseImage"/>
+                    <img src={DefaultImageIcon} className="enterpriseImage"/>
+                    <img src={DefaultImageIcon} className="enterpriseImage"/>
                 </Carousel>
                 <section className="table" id="products">
                     <div className="product-card">

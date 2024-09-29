@@ -4,7 +4,9 @@ import {tokenValidate} from "../middleware/Auth.js";
 import productController from "../controller/ProductController.js";
 const productRouter = express.Router();
 
-productRouter.get('/', tokenValidate, ProductController.getAllProducts)
-productRouter.post('/', productController.createProduct);
+productRouter.get('/', tokenValidate, ProductController.getAllProducts);
+productRouter.post('/',tokenValidate, productController.createProduct);
+productRouter.put('/:id', tokenValidate, productController.updateProduct);
+productRouter.delete('/:id', tokenValidate, productController.deleteProduct);
 
 export default productRouter;

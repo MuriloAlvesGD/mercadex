@@ -4,12 +4,14 @@ body {
 
 .content-container {
     margin: 0;
-    min-height: calc(100vh - 144px);
+    min-height: calc(100vh - 104px);
     background: #212123;
 }
 
 .section-title {
     color: var(--cornsilk);
+    margin-top: 40px;
+    font-weight: bold;
 }
 
 .dashboard-container {
@@ -93,9 +95,10 @@ body {
     display: flex;
     gap: 20px;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-wrap: wrap;
     backdrop-filter: brightness(1.1);
+
 }
 
 .enterpriseImage {
@@ -122,6 +125,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-height: 370px;
     border-radius: calc(10px + 1rem);
     padding: 1rem 1rem 2rem;
     gap: 5px;
