@@ -6,7 +6,7 @@ import { PiTrashFill } from "react-icons/pi";
 import { ImCross } from "react-icons/im";
 import { IoLogOut } from "react-icons/io5";
 import "./Controller.css"
-import Dashboard from "../pages/Dashboard/Admin.jsx";
+import Dashboard from "../pages/Dashboard/Dashboard.jsx";
 import {useNavigate} from "react-router-dom";
 import ProductTable from "../pages/ProductTable/ProductTable.jsx";
 import axios from "axios";

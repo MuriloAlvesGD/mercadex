@@ -6,7 +6,7 @@ const specificationSchema = new mongoose.Schema({
         type: String,
         maxLength: 100,
         required: true,
-        default: "default",
+        default: "todos",
     },
     weight: {
         type: Number,
