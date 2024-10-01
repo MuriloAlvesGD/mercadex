@@ -42,18 +42,22 @@ function ProductTable() {
 
     return (
         <div className="content-container">
-            <h1 className="section-title">Selling Products</h1>
-            <input
-                id="product-search"
-                onChange={(e) => handleFilterProduct(e.target.value)}
-                type="text"
-                placeholder="Search Item"
-            />
-            <section id="table">
+            <header className="promotion-header">
                 <button className="register-btn" onClick={() => openPopUp(1)}>
                     <MdAddBox/>
                     <h1>CADASTRAR NOVO ITEM</h1>
                 </button>
+                <div id="promotion-header-text">
+                    <h1 className="section-title">Selling Products</h1>
+                    <input
+                        id="product-search"
+                        onChange={(e) => handleFilterProduct(e.target.value)}
+                        type="text"
+                        placeholder="Search Item"
+                    />
+                </div>
+            </header>
+            <section id="table">
                 {filteredProducts.map((product) => (
                     <ProductCard product={product} key={product._id} openPopUp={() => openPopUp(product)}/>
                 ))}

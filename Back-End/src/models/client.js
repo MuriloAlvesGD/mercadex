@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"
-import address from "./address";
+import address from "./address.js";
 import contact from "./contact.js";
 
 const clientSchema = new mongoose.Schema({

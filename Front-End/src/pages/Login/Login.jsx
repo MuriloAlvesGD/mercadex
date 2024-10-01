@@ -1,6 +1,6 @@
 import "./Login.css"
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {IoMdClose} from "react-icons/io";
 import axios from 'axios';
@@ -44,6 +44,25 @@ function Login() {
         }
     }
 
+    const auth = async() => {
+        try {
+            const response = await axios.get('http://localhost:3333/auth/', {
+                withCredentials: true,
+            })
+            const access = response.data.assignment.accessLevel
+            if (access === null) {
+                navigate("/Login", {replace: true});
+            }
+            else {
+                navigate("/Admin", {replace: true});
+            }
+        }
+        catch (e){
+            !e.response.data.assignment ? navigate("/Login", {replace: true}) : console.error(e);
+        }
+    }
+
+
     const handleSignIn = async () => {
         signin(email.value, password);
     }
@@ -52,6 +71,10 @@ function Login() {
     const handleEmailChange = (e) => {
         setEmail({value: e.target.value, dirty: true})
     }
+
+    useEffect(() => {
+        auth()
+    }, [])
     return (
         <>
             <div className="login-container">

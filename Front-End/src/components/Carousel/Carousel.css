@@ -1,0 +1,102 @@
+.carousel-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 3rem;
+    color: var(--cornsilk);
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+    transition: 0.1s ease-in;
+    opacity: 0.8;
+
+}
+
+.arrow:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+
+.arrow:active {
+    scale: 1;
+}
+
+.carousel-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease; /* Transição suave para a opacidade */
+}
+
+.slide-in {
+    animation: slideIn 0.5s ease forwards; /* Animação de entrada */
+}
+
+.slide-out {
+    animation: slideOut 0.5s ease forwards; /* Animação de saída */
+}
+
+.slide-in-prev {
+    animation: slideInPrev 0.5s ease forwards; /* Animação de entrada */
+}
+
+.slide-out-prev {
+    animation: slideOutPrev 0.5s ease forwards; /* Animação de saída */
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(150%); /* Começa fora da tela à direita */
+        opacity: 0; /* Começa invisível */
+    }
+    50% {
+        opacity: 1; /* Fica visível no meio da animação */
+    }
+    100% {
+        transform: translateX(0); /* Termina na posição original */
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0); /* Começa na posição original */
+        opacity: 1; /* Começa visível */
+    }
+    50% {
+        opacity: 0; /* Fica invisível no meio da animação */
+    }
+    100% {
+        transform: translateX(-150%);
+        opacity: 0;/* Sai para a esquerda */
+    }
+}
+
+@keyframes slideInPrev {
+    0% {
+        transform: translateX(-150%); /* Começa fora da tela à direita */
+        opacity: 0; /* Começa invisível */
+    }
+    50% {
+        opacity: 1; /* Fica visível no meio da animação */
+    }
+    100% {
+        transform: translateX(0); /* Termina na posição original */
+    }
+}
+
+@keyframes slideOutPrev {
+    0% {
+        transform: translateX(0); /* Começa na posição original */
+        opacity: 1; /* Começa visível */
+    }
+    50% {
+        opacity: 0; /* Fica invisível no meio da animação */
+    }
+    100% {
+        transform: translateX(150%); /* Sai para a esquerda */
+        opacity: 0;
+    }
+}

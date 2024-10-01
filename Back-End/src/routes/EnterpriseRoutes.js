@@ -1,5 +1,5 @@
 import express from 'express';
-import EnterpriseController from '../controller/enterpriseController.js';
+import EnterpriseController from '../controllers/enterpriseController.js';
 import {tokenValidate} from "../middleware/Auth.js";
 const router = express.Router();
 

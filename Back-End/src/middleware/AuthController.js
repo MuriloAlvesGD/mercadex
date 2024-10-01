@@ -66,3 +66,13 @@ export const getAccessLevel = async (req, res) => {
 
     return res.status(401).json({error: "Unauthorized", valid: false});
 }
+
+export const logout = (req, res) => {
+    res.clearCookie("authToken", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+    });
+
+    return res.status(200).json({ message: "Logout realizado com sucesso." });
+};

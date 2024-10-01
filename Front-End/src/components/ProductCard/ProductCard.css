@@ -10,32 +10,31 @@
     width: fit-content;
     color: var(--cornsilk);
     background-color: var(--davys-gray);
-    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.2));
+    box-shadow:
+            2px 2px 10px rgba(0,0,0, 0.7),
+            -2px -2px 8px rgba(255, 255, 255, 0.3);
 }
 
-#arrow-btns {
+#img-arrow-btns {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 0 0 -6px;
-    width: calc(100% + 12px);
-    position: absolute;
-    top: 30%;
-    left: 0;
+    margin: calc(50px + 1rem) 0 -100px -25px;
+    width: calc(100% + 50px);
     z-index: 10;
 
-    .arrow {
+    .img-arrow {
         font-size: 2rem;
         color: var(--cornsilk);
         filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
         transition: 0.1s ease-in;
     }
 
-    .arrow:hover {
+    .img-arrow:hover {
         scale: 1.2;
     }
 
-    .arrow:active {
+    .img-arrow:active {
         scale: 1;
     }
 }

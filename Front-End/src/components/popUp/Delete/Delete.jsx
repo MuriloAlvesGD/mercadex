@@ -2,7 +2,7 @@ import React from 'react';
 import '../PopUpForm.css';
 import axios from "axios";
 
-const Delete = ({isOpen, onClose, deleteProduct}) => {
+const Delete = ({isOpen, onClose, deleteFunction, deleteID}) => {
 
     const handleClose = () => {
         onClose()
@@ -11,18 +11,12 @@ const Delete = ({isOpen, onClose, deleteProduct}) => {
     const handleDelete = async () => {
         try {
             // Verifica se deleteProduct é válido
-            if (!deleteProduct) {
-                throw new Error('Product ID is required for deletion');
+            if (!deleteID) {
+                throw new Error('Delete ID is required for deletion');
             }
 
-            const response = await axios.delete(`http://localhost:3333/products/${deleteProduct}`, { withCredentials: true });
-
-            // Verifica se a resposta é bem-sucedida
-            if (response.status === 200) {
-                handleClose(); // Fecha o popup após a exclusão
-            } else {
-                console.log('Error deleting product:', response.data);
-            }
+            await deleteFunction(deleteID);
+            handleClose();
         } catch (e) {
             // Loga o erro com mais detalhes
             console.error('Error occurred during deletion:', e.response ? e.response.data : e.message);

@@ -67,6 +67,22 @@ const Register = ({isOpen, onClose, product}) => {
         });
     }
 
+    const deleteProduct = async(deleteID) => {
+        try {
+            const response = await axios.delete(`http://localhost:3333/products/${deleteID}`, {withCredentials: true});
+
+            // Verifica se a resposta é bem-sucedida
+            if (response.status === 200) {
+                handleClose(); // Fecha o popup após a exclusão
+            } else {
+                console.log('Error deleting product:', response.data);
+            }
+        }
+        catch (e) {
+            console.log('Error deleting product:', e);
+        }
+    }
+
     const handleSubmit = async () => {
         try {
             if (!product._id){
@@ -187,7 +203,7 @@ const Register = ({isOpen, onClose, product}) => {
                     <button type="submit" onClick={handleSubmit}>{product._id ? "Atualizar":"Registrar"}</button>
                     <button type="button" onClick={handleClose}>Fechar</button>
                 </div>
-                <Delete isOpen={isPopUpOpen} onClose={closePopUp} deleteProduct={product._id}/>
+                <Delete isOpen={isPopUpOpen} onClose={closePopUp} deleteFunction={deleteProduct} deleteID={product._id}/>
             </div>
         </div>
     );
