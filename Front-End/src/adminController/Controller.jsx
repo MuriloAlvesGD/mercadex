@@ -51,8 +51,11 @@ function Controller() {
 
     const logout = async () => {
         try {
-            const response = await axios.get('http://localhost:3333/auth/logout')
-            navigate("./login", {replace: true})
+            const response = await axios.get('http://localhost:3333/auth/logout', {withCredentials: true})
+
+            if (response.status === 200) {
+                navigate("./login", {replace: true})
+            }
         }
         catch (e) {
             console.error(e);
